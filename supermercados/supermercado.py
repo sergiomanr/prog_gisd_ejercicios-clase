@@ -82,6 +82,19 @@ def elegir_supermercado() -> str:
         print("Ese supermercado no está disponible en esta tienda online.")
         exit(1)
 
+def get_cesta_con_asistente(listado_precios: dict[str, float]) -> list[str]:
+    cesta = []
+    while True:  # utilizamos while para que te siga preguntando todo el rato que alimento quieres
+        alimento = input("¿qué alimento necesita? ")
+        if alimento == "No quiero nada más" or alimento == "Quiero pagar ya":
+            break  # si pones q no quieres más, con el break salta directamente al tiket de la compra
+        elif alimento in listado_precios:
+            cesta.append(alimento)  # si está, se añade directamente a la cesta
+            print("De acuerdo, he añadido", alimento, "a tu cesta de la compra.")
+        else:
+            print("Lo siento, pero no tenemos ese producto")
+    return cesta
+
 def imprimir_ticket(cesta: list[str]) -> None:
     
     total_a_pagar = 0
@@ -112,22 +125,9 @@ def imprimir_ticket(cesta: list[str]) -> None:
 
         # y se imprime todo
 
-        print(unidades, "x", alimento, "(", precio_unitario, "€) ->", precio, "€")
+        print(unidades, "x", alimento, "(", precio_unitario, "€) ->", round(precio,2), "€")
+    print("TOTAL:", round(total_a_pagar,2), "€")
 
-    print("TOTAL:", total_a_pagar, "€")
-
-def get_cesta_con_asistente(listado_precios: dict[str, float]) -> list[str]:
-    cesta = []
-    while True:  # utilizamos while para que te siga preguntando todo el rato que alimento quieres
-        alimento = input("¿qué alimento necesita? ")
-        if alimento == "No quiero nada más" or alimento == "Quiero pagar ya":
-            break  # si pones q no quieres más, con el break salta directamente al tiket de la compra
-        elif alimento in listado_precios:
-            cesta.append(alimento)  # si está, se añade directamente a la cesta
-            print("De acuerdo, he añadido", alimento, "a tu cesta de la compra.")
-        else:
-            print("Lo siento, pero no tenemos ese producto")
-    return cesta
 
 # Inicio del programa principal
 if __name__ == '__main__':
