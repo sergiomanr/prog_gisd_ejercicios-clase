@@ -5,7 +5,7 @@ condicionales usando también listas e inputs
 from funciones_disco import get_edad, conversacion_con_portero, es_mayor_de_edad, elegir_discoteca
 
 '''
-Inicio del programa que va a realizar cosas
+Inicio del programa 
 '''
 if __name__ == '__main__':
     edad: int = get_edad()
