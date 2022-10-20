@@ -1,7 +1,7 @@
 # Diccionario de supermercados keys=nombres y values = diccionario de producto/precio
 supermercados = {
     "mercadona": {
-        "azúcar": 2.0,
+        "azúcar": 2.0, 
         "verdura": 12.0,
         "carne": 20.5,
         "pescado": 17.3,
